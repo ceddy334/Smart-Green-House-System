@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test OTP Email</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="email"], input[type="text"] { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 10px 15px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        #result { margin-top: 20px; padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Test OTP Email</h1>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" value="xirced334@gmail.com" required>
+    </div>
+    <div class="form-group">
+        <label for="otp">OTP:</label>
+        <input type="text" id="otp" value="123456" required>
+    </div>
+    <div class="form-group">
+        <label for="purpose">Purpose:</label>
+        <select id="purpose">
+            <option value="email_verification">Email Verification</option>
+            <option value="password_reset">Password Reset</option>
+        </select>
+    </div>
+    <button onclick="sendTestEmail()">Send Test Email</button>
+    <div id="result">Click the button to test email sending</div>
+
+    <script>
+    async function sendTestEmail() {
+        const email = document.getElementById('email').value;
+        const otp = document.getElementById('otp').value;
+        const purpose = document.getElementById('purpose').value;
+        const resultDiv = document.getElementById('result');
+        
+        resultDiv.textContent = 'Sending test email...';
+        resultDiv.style.color = 'black';
+        
+        try {
+            const response = await fetch('http://localhost:5000/api/test/test-otp-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, otp, purpose })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                resultDiv.textContent = '✅ Email sent successfully! Check your inbox.';
+                resultDiv.style.color = 'green';
+                console.log('Server response:', data);
+            } else {
+                resultDiv.textContent = `❌ Error: ${data.message || 'Unknown error'}`;
+                resultDiv.style.color = 'red';
+                console.error('Error response:', data);
+            }
+        } catch (error) {
+            resultDiv.textContent = `❌ Network error: ${error.message}`;
+            resultDiv.style.color = 'red';
+            console.error('Network error:', error);
+        }
+    }
+    </script>
+</body>
+</html>

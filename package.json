@@ -1,0 +1,36 @@
+{
+  "name": "fullstack-auth-app",
+  "version": "1.0.0",
+  "description": "Full-stack authentication application with React frontend and Node.js backend",
+  "main": "start-dev.js",
+  "scripts": {
+    "start": "node start-dev.js",
+    "dev": "node start-dev.js",
+    "clean-start": "node clean-start.js",
+    "backend": "cd Backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "install-all": "cd Backend && npm install && cd ../frontend && npm install",
+    "setup": "cd Backend && npm run setup && cd ../Backend && npm run seed"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "authentication",
+    "jwt",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "expo": "^54.0.5",
+    "nodemailer": "^7.0.6",
+    "react-dom": "19.1.0",
+    "react-native-web": "^0.21.0"
+  }
+}
