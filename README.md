@@ -72,8 +72,8 @@ A comprehensive IoT dashboard and e-commerce platform for greenhouse management 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/SGHS.git
-   cd SGHS
+   git clone https://github.com/ceddy334/Smart-Green-House-System.git
+   cd Smart-Green-House-System
    ```
 
 2. **Backend Setup**
@@ -264,8 +264,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 - Email: support@sghs.com
-- Documentation: [Wiki](https://github.com/yourusername/SGHS/wiki)
-- Issues: [GitHub Issues](https://github.com/yourusername/SGHS/issues)
+- Documentation: [Wiki](https://github.com/ceddy334/Smart-Green-House-System/wiki)
+- Issues: [GitHub Issues](https://github.com/ceddy334/Smart-Green-House-System/issues)
 
 ---
 
